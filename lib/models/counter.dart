@@ -1,10 +1,18 @@
+import 'package:json_annotation/json_annotation.dart';
+import 'package:moment_counter/models/event.dart';
+
+part 'counter.g.dart';
+
+@JsonSerializable()
 class Counter {
   String title;
 
-  Counter({required this.title});
+  List<Event> events = [];
 
-  factory Counter.fromJson(Map<String, Object> data) {
-    final title = data['title'] as String;
-    return Counter(title: title);
-  }
+  Counter({required this.title, this.events = const []});
+
+  factory Counter.fromJson(Map<String, dynamic> json) =>
+      _$CounterFromJson(json);
+
+  Map<String, dynamic> toJson() => _$CounterToJson(this);
 }

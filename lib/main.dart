@@ -1,6 +1,12 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:moment_counter/models/counter.dart';
+import 'package:moment_counter/models/user.dart';
+
+import 'models/event.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,7 +24,7 @@ class MyApp extends StatelessWidget {
           GlobalCupertinoLocalizations.delegate,
         ],
         supportedLocales: const [
-          Locale('en', ''),
+          // Locale('en', ''),
           Locale('zh', ''),
         ],
         theme: ThemeData(
@@ -97,7 +103,11 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'You have pushed the button this many times:',
+              'You data ${jsonEncode(User(name: 'goodname', counters: [
+                    Counter(
+                        title: 'good',
+                        events: [Event(dateTime: DateTime.now(), note: 'good')])
+                  ]))}',
             ),
             Text(
               '$_counter',
