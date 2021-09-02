@@ -3,13 +3,15 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:moment_counter/models/counter.dart';
-import 'package:moment_counter/models/user.dart';
+import 'package:moment_counter/utils/data_util.dart';
 
-import 'models/event.dart';
-
-void main() {
+void main() async {
+  await initAll();
   runApp(MyApp());
+}
+
+initAll() async {
+  await DataUtil.init();
 }
 
 class MyApp extends StatelessWidget {
@@ -70,6 +72,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    var user = DataUtil.instance.loadUser();
+
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -103,11 +107,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'You data ${jsonEncode(User(name: 'goodname', counters: [
-                    Counter(
-                        title: 'good',
-                        events: [Event(dateTime: DateTime.now(), note: 'good')])
-                  ]))}',
+              'You data ${jsonEncode(user)}',
             ),
             Text(
               '$_counter',
