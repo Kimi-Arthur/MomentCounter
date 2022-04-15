@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:moment_counter/utils/data_util.dart';
+import 'package:moment_counter/widgets/counters.dart';
 
 void main() async {
   await initAll();
@@ -109,10 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(
               'You data ${jsonEncode(user)}',
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
+            CountersWidget(),
           ],
         ),
       ),
