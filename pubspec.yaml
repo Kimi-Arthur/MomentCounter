@@ -2,13 +2,13 @@ name: moment_counter
 description: Counter for daily moments
 
 # The following line prevents the package from being accidentally published to
-# pub.dev using `pub publish`. This is preferred for private packages.
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 version: 0.0.3
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=2.16.1 <3.0.0"
 
 dependencies:
   flutter:
@@ -27,9 +27,7 @@ dev_dependencies:
     sdk: flutter
   build_runner: ^2.0.0
   json_serializable: ^6.1.5
-#
-#dependency_overrides:
-#  meta: '1.7.0'
+  flutter_lints: ^1.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
