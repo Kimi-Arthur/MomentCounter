@@ -22,7 +22,7 @@ class CountersWidgetState extends State<StatefulWidget> {
             return SingleChildScrollView(
                 child: Wrap(
               children: user.counters
-                  .map((c) => CounterWidget())
+                  .map((c) => CounterWidget(c))
                   .toList(growable: false),
             ));
           }
