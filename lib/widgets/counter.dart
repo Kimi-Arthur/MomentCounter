@@ -23,24 +23,26 @@ class CounterWidgetState extends State<CounterWidget> {
             Center(
               child: Text(widget.counter.title, textScaleFactor: 3),
             ),
-            Row(
-              children: [
-                IconButton(
-                  icon: const Icon(Icons.remove),
-                  onPressed: () {},
-                ),
-                Expanded(
-                  child: Center(
-                    child: Text(
-                        '${widget.counter.events.isEmpty ? 0 : widget.counter.events.last.amount}/${widget.counter.dailyGoal}',
-                        textScaleFactor: 2),
+            Expanded(
+              child: Row(
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.remove),
+                    onPressed: () {},
                   ),
-                ),
-                IconButton(
-                  icon: const Icon(Icons.add),
-                  onPressed: () {},
-                ),
-              ],
+                  Expanded(
+                    child: Center(
+                      child: Text(
+                          '${widget.counter.events.isEmpty ? 0 : widget.counter.events.last.amount}/${widget.counter.dailyGoal}',
+                          textScaleFactor: 2),
+                    ),
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.add),
+                    onPressed: () {},
+                  ),
+                ],
+              ),
             )
           ],
         ),
