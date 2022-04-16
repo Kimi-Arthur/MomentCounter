@@ -8,7 +8,7 @@ class CounterWidget extends StatefulWidget {
 class CounterWidgetState extends State<StatefulWidget> {
   @override
   Widget build(BuildContext context) {
-    return new Card(
+    return Card(
       child: SizedBox(
         height: 250,
         width: 250,

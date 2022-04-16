@@ -7,9 +7,11 @@ part 'counter.g.dart';
 class Counter {
   String title;
 
+  int dailyGoal;
+
   List<Event> events = [];
 
-  Counter({required this.title, this.events = const []});
+  Counter({required this.title, this.dailyGoal = 1, this.events = const []});
 
   factory Counter.fromJson(Map<String, dynamic> json) =>
       _$CounterFromJson(json);
