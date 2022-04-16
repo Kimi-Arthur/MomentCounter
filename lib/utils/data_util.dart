@@ -6,10 +6,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 class DataUtil {
   SharedPreferences _prefs;
 
-  static late DataUtil instance;
+  static DataUtil? _instance;
 
-  static Future<void> init() async {
-    instance = DataUtil._(prefs: await SharedPreferences.getInstance());
+  static Future<DataUtil> get instance async {
+    _instance ??= DataUtil._(prefs: await SharedPreferences.getInstance());
+    return _instance!;
   }
 
   DataUtil._({required prefs}) : _prefs = prefs;
